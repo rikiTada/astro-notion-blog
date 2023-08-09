@@ -1,7 +1,8 @@
 ---
 import { PUBLIC_GA_TRACKING_ID, ENABLE_LIGHTBOX } from '../server-constants.ts'
 import { getDatabase } from '../lib/notion/client.ts'
-import { getNavLink, getStaticFilePath, filePath } from '../lib/blog-helpers.ts'
+// import { getNavLink, getStaticFilePath, filePath } from '../lib/blog-helpers.ts'
+import { getNavLink, getStaticFilePath } from '../lib/blog-helpers.ts'
 import '../styles/syntax-coloring.css'
 import GoogleAnalytics from '../components/GoogleAnalytics.astro'
 
@@ -144,7 +145,7 @@ const siteOGImage = new URL(getStaticFilePath('/default-og-image.png'), Astro.si
   </body>
 </html>
 
-<style define:vars={{ asidePaddingTop , coverImageURL }}>
+<style>
   .container {
     display: flex;
     min-height: 100vh;
@@ -169,7 +170,7 @@ const siteOGImage = new URL(getStaticFilePath('/default-og-image.png'), Astro.si
   aside {
     order: 2;
     width: 18%;
-    padding: var(--asidePaddingTop) 20px 20px;
+    padding: 100px 20px 20px;
     /* background-color: #444b58; */
 		border: 1px solid #d8d8d8;
 		position: sticky;

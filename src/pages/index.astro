@@ -29,6 +29,15 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
 
 <Layout>
   <div slot="main" class={styles.main}>
+
+		<div class="main-profile">
+			<h2>Profile</h2>
+			<p>東京在住のフロントエンダー, Ｒ.Ｔです。<br>
+				趣味は、読書とお酒の’96年生まれ。デザインも大好きです！！<br>
+				テックブログと称して、雑多な記事もどんどん載せていく予定です！よろしくお願いします🙌
+			</p>
+		</div>
+
     {
       posts.length === 0 ? (
         <NoContents contents={posts} />
@@ -56,3 +65,16 @@ const [posts, rankedPosts, tags, numberOfPages] = await Promise.all([
     <BlogTagsLink heading="Categories" tags={tags} />
   </div>
 </Layout>
+<style>
+	.main-profile{
+		margin: 2rem 0 4rem;
+	}
+.main-profile h2{
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--fg);
+}
+.main-profile p{
+	padding: 0.2rem 0;
+}
+</style>

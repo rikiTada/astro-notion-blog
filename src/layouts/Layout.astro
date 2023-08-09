@@ -71,32 +71,33 @@ const asidePaddingTop = coverImageURL ? '100px' : '60px'
 		integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0"
 		crossorigin="anonymous"
     />
-		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="favicon.png" type="image/x-icon">
   </head>
   <body>
     <GoogleAnalytics trackingId={PUBLIC_GA_TRACKING_ID} />
 		<header>
 			<h1>
 				<a href={getNavLink('/')}>
+					<img src="code_white.svg" alt="">
 					{
-						database.Icon && database.Icon.Type === 'emoji' ? (
-							<>
-								<span>{database.Icon.Emoji}</span>
-								{database.Title}
-							</>
-						) : database.Icon && database.Icon.Type === 'external' ? (
-							<>
-								<img src={database.Icon.Url} />
-								{database.Title}
-							</>
-						) : database.Icon && database.Icon.Type === 'file' ? (
-							<>
-								<img src={customIconURL} class="custom-icon" />
-								{database.Title}
-							</>
-						) : (
+						// database.Icon && database.Icon.Type === 'emoji' ? (
+						// 	<>
+						// 		<span>{database.Icon.Emoji}</span>
+						// 		{database.Title}
+						// 	</>
+						// ) : database.Icon && database.Icon.Type === 'external' ? (
+						// 	<>
+						// 		<img src={database.Icon.Url} />
+						// 		{database.Title}
+						// 	</>
+						// ) : database.Icon && database.Icon.Type === 'file' ? (
+						// 	<>
+						// 		<img src={customIconURL} class="custom-icon" />
+						// 		{database.Title}
+						// 	</>
+						// ) : (
 							database.Title
-						)
+						// )
 					}
 				</a>
 			</h1>
@@ -235,7 +236,7 @@ const asidePaddingTop = coverImageURL ? '100px' : '60px'
   header h1 a img {
     width: 1.2em;
     height: 1.2em;
-    margin-right: 0.2em;
+    margin-right: 0em;
     margin-left: -0.3rem;
     vertical-align: sub;
   }

@@ -5,6 +5,9 @@ import { getDatabase } from '../lib/notion/client.ts'
 import { getNavLink, getStaticFilePath } from '../lib/blog-helpers.ts'
 import '../styles/syntax-coloring.css'
 import GoogleAnalytics from '../components/GoogleAnalytics.astro'
+import { ViewTransitions } from "astro:transitions"
+import { slide } from 'astro:transitions';
+
 
 export interface Props {
   title: string
@@ -48,7 +51,7 @@ const siteOGImage = new URL(getStaticFilePath('/R.techBlog.png'), Astro.site)
 ---
 
 <!DOCTYPE html>
-<html lang="ja" prefix="og: https://ogp.me/ns#">
+<html lang="ja" prefix="og: https://ogp.me/ns#" transition:animate={slide({ duration: '0.75s' })}>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="max-image-preview:large" />
@@ -73,6 +76,7 @@ const siteOGImage = new URL(getStaticFilePath('/R.techBlog.png'), Astro.site)
       crossorigin="anonymous"
     />
     <link rel="icon" href="/favicon.png" type="image/x-icon" />
+		<ViewTransitions />
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4359460463038378"
@@ -86,24 +90,7 @@ const siteOGImage = new URL(getStaticFilePath('/R.techBlog.png'), Astro.site)
         <a href={getNavLink('/')}>
           <img src="/code_white.svg" alt="" />
           {
-            // database.Icon && database.Icon.Type === 'emoji' ? (
-            // 	<>
-            // 		<span>{database.Icon.Emoji}</span>
-            // 		{database.Title}
-            // 	</>
-            // ) : database.Icon && database.Icon.Type === 'external' ? (
-            // 	<>
-            // 		<img src={database.Icon.Url} />
-            // 		{database.Title}
-            // 	</>
-            // ) : database.Icon && database.Icon.Type === 'file' ? (
-            // 	<>
-            // 		<img src={customIconURL} class="custom-icon" />
-            // 		{database.Title}
-            // 	</>
-            // ) : (
-            database.Title
-            // )
+						database.Title
           }
         </a>
       </h1>
@@ -144,7 +131,7 @@ const siteOGImage = new URL(getStaticFilePath('/R.techBlog.png'), Astro.site)
               data-ad-format="auto"
               data-full-width-responsive="true"></ins>
             <script>
-              ;(adsbygoogle = window.adsbygoogle || []).push({})
+              (adsbygoogle = window.adsbygoogle || []).push({})
             </script>
           </footer>
         </div>

@@ -9,9 +9,9 @@ import { ViewTransitions } from 'astro:transitions'
 import { slide } from 'astro:transitions'
 
 export interface Props {
-  title: string
+  title?: string
   description?: string
-  path: string
+  path?: string
   ogImage?: string
 }
 
@@ -207,7 +207,7 @@ const siteOGImage = new URL(getStaticFilePath('/R.techBlog.png'), Astro.site)
       header h1 a img {
         width: 1.2em;
         height: 1.2em;
-        margin-right: 0em;
+        margin-right: 0.1em;
         margin-left: -0.3rem;
         vertical-align: sub;
       }

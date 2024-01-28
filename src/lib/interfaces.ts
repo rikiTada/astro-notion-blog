@@ -118,8 +118,9 @@ export interface File {
 
 export interface FileObject {
   Type: string
-  Url: string
+  Url?: string
   ExpiryTime?: string
+  Emoji: string
 }
 
 export interface External {
@@ -231,6 +232,7 @@ export interface Text {
 export interface Emoji {
   Type: string
   Emoji: string
+  Url?: string
 }
 
 export interface Annotation {

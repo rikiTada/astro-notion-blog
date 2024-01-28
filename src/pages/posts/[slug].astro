@@ -62,8 +62,8 @@ const fileAtacchedBlocks = extractTargetBlocks('image', blocks)
 await Promise.all(
   fileAtacchedBlocks
     .map(async (block) => {
-      const expiryTime = (block.Image || block.File).File.ExpiryTime
-      if (Date.parse(expiryTime) > Date.now()) {
+      const expiryTime = (block.Image || block.File)?.File?.ExpiryTime
+      if (Date.parse(expiryTime!) > Date.now()) {
         return Promise.resolve(block)
       }
       return getBlock(block.Id)
@@ -71,8 +71,9 @@ await Promise.all(
     .map((promise) =>
       promise.then((block) => {
         let url!: URL
+        const fileUrl = (block.Image || block.File)?.File?.Url!
         try {
-          url = new URL((block.Image || block.File).File.Url)
+          url = new URL(fileUrl)
         } catch (err) {
           console.log('Invalid file URL')
           return Promise.reject()
@@ -89,7 +90,10 @@ const nextPost = allPosts[currentPostIndex - 1]
 
 let ogImage = ''
 if (post.FeaturedImage && post.FeaturedImage.Url) {
-  ogImage = new URL(filePath(new URL(post.FeaturedImage.Url)), Astro.site)
+  ogImage = new URL(
+    filePath(new URL(post.FeaturedImage.Url)),
+    Astro.site
+  ).toString()
 }
 ---
 

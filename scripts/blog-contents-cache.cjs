@@ -1,7 +1,7 @@
-const { exec } = require('child_process');
-const { Client } = require('@notionhq/client');
-const cliProgress = require('cli-progress');
-const { PromisePool } = require('@supercharge/promise-pool');
+import { exec } from 'child_process';
+import { Client } from '@notionhq/client';
+import cliProgress from 'cli-progress';
+import { PromisePool } from '@supercharge/promise-pool';
 
 const notion = new Client({ auth: process.env.NOTION_API_SECRET });
 
